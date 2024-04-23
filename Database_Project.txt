@@ -1,0 +1,329 @@
+create table Country(
+Country_name varchar(20),
+Ranking number(3),
+Wc_wins number(1)
+);
+
+insert into Country(Country_name,Ranking,Wc_wins)values('Argentina',1,3);
+insert into Country(Country_name,Ranking,Wc_wins)values('France',2,2);
+insert into Country(Country_name,Ranking,Wc_wins)values('England',3,1);
+insert into Country(Country_name,Ranking,Wc_wins)values('Belgium',4,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Brazil',5,5);
+insert into Country(Country_name,Ranking,Wc_wins)values('Netherlands',6,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Portugal',7,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Spain',8,1);
+insert into Country(Country_name,Ranking,Wc_wins)values('Italy',9,4);
+insert into Country(Country_name,Ranking,Wc_wins)values('Croatia',10,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Uruguay',11,2);
+insert into Country(Country_name,Ranking,Wc_wins)values('Morocco',12,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('United States',13,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Colombia',14,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Mexico',15,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Germany',16,4);
+insert into Country(Country_name,Ranking,Wc_wins)values('Senegal',17,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Japan',18,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Switzerland',19,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('IR Iran',20,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Norway',44,0);
+insert into Country(Country_name,Ranking,Wc_wins)values('Poland',30,0);
+
+ALTER TABLE Country
+ADD PRIMARY KEY (Country_name);
+
+create table Player(
+Player_name varchar(20),
+Country_name varchar(20),
+jersey_no number(3),
+club_name varchar(20),
+position_name varchar(3),
+primary key(player_name)
+);
+
+ALTER TABLE Player add FOREIGN KEY (Country_name) REFERENCES Country(Country_name);
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Erling Haaland','Norway',9,'Manchester City','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Jude Bellingham','England',22,'Real Madrid','AMF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Kylian Mbappé','France',10,'Paris Saint-Germain','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Harry Kane','England',9,'Bayern Munich','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Rodri','Spain',16,'Manchester City','CDM');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Vinícius Júnior','Brazil',7,'Real Madrid','LW');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Kevin De Bruyne','Belgium',7,'Manchester City','CM');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Lionel Messi','Argentina',10,'Inter Miami','LW');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Bernardo Silva','Portugal',10,'Manchester City','MF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Lautaro Martínez','Argentina',9,'Inter Milan','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Bukayo Saka','England',17,'Arsenal','RW');
+
+insert into 
+Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Antoine Griezmann','France',7,'Atlético Madrid','CF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Ilkay Gündogan','Germany',21,'Barcelona','DMF');
+
+insert into 
+Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Robert Lewandowski','Poland',9,'Barcelona','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Martin Ødegaard','Norway',9,'Arsenal','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Julián Álvarez','Argentina',9,'Manchester City','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Jamal Musiala','Germany',14,'Bayern Munich','AMF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Rúben Dias','Portugal',4,'Manchester City','CB');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Declan Rice','England',4,'Arsenal','MF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Ederson','Brazil',1,'Manchester City','GK');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Luka Modric','Croatia',10,'Real Madrid','MF');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Cristiano Ronaldo','Portugal',7,'Al-Nassr','ST');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Neymar','Brazil',10,'Al-Hilal','LW');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Emiliano Martinez','Argentina',1,'Aston Villa','GK');
+
+insert into Player(Player_name,Country_name,jersey_no,club_name,position_name)values('Rodrygo','Brazil',21,'Real Madrid','RW');
+
+
+create table Club(
+    club_name VARCHAR(20) PRIMARY KEY,
+    Country_name VARCHAR(20),
+    league_title VARCHAR(50),
+    league_won NUMBER(2),
+    ucl_title NUMBER(2),
+    coach_name VARCHAR(30),
+    FOREIGN KEY (Country_name) REFERENCES Country(Country_name)
+);
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Boca Juniors', 'Argentina', 'Primera División', 34, 0, 'Miguel Ángel Russo');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('River Plate', 'Argentina', 'Primera División', 18, 4, 'Marcelo Gallardo');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Paris Saint-Germain', 'France', 'Ligue 1', 11, 0, 'Luis Enrique');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Olympique de Marseille', 'France', 'Ligue 1', 10, 1, 'Jorge Sampaoli');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Manchester City', 'England', 'Premier League', 7, 1, 'Pep Guardiola');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Liverpool', 'England', 'Premier League', 19, 6, 'Jürgen Klopp');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Flamengo', 'Brazil', 'Série A', 7, 2, 'Rogério Ceni');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('São Paulo', 'Brazil', 'Série A', 6, 3, 'Hernán Crespo');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Real Madrid', 'Spain', 'La Liga', 35, 14, 'Carlo Ancelotti');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Barcelona', 'Spain', 'La Liga', 27, 5, 'Xavi Hernández');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Bayern Munich', 'Germany', 'Bundesliga', 32, 6, 'Thomas Tuchel');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Borussia Dortmund', 'Germany', 'Bundesliga', 5, 1, 'Marco Rose');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Porto', 'Portugal', 'Primeira Liga', 29, 2, 'Sérgio Conceição');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Sporting CP', 'Portugal', 'Primeira Liga', 19, 1, 'Rúben Amorim');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('AS Monaco', 'France', 'Ligue 1', 8, 0, 'Niko Kovač');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Olympique Lyonnais', 'France', 'Ligue 1', 7, 0, 'Peter Bosz');
+
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Arsenal', 'England', 'Premier League', 13, 0, 'Mikel Arteta');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Tottenham Hotspur', 'England', 'Premier League', 2, 0, 'Antonio Conte');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Palmeiras', 'Brazil', 'Série A', 10, 0, 'Abel Ferreira');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Santos', 'Brazil', 'Série A', 8, 3, 'Fernando Diniz');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Atlético Madrid', 'Spain', 'La Liga', 11, 0, 'Diego Simeone');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Sevilla', 'Spain', 'La Liga', 1, 0, 'Julen Lopetegui');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('RB Leipzig', 'Germany', 'Bundesliga', 0, 0, 'Jesse Marsch');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Bayer Leverkusen', 'Germany', 'Bundesliga', 1, 0, 'Xabi Alonso');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('SL Benfica', 'Portugal', 'Primeira Liga', 37, 2, 'Nelson Veríssimo');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Braga', 'Portugal', 'Primeira Liga', 0, 0, 'Carlos Carvalhal');
+
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Juventus', 'Italy', 'Serie A', 36, 2, 'Massimiliano Allegri');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('AC Milan', 'Italy', 'Serie A', 18, 7, 'Stefano Pioli');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Inter Milan', 'Italy', 'Serie A', 19, 3, 'Simone Inzaghi');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('AS Roma', 'Italy', 'Serie A', 3, 0, 'Daniele De Rossi');
+
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Inter Miami', 'United States', 'MLS', 0, 0, 'Phil Neville');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Al-Hilal', 'Saudi Arabia', 'Saudi Professional League', 17, 0, 'Rogerio Micale');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Al-Nassr', 'Saudi Arabia', 'Saudi Professional League', 9, 0, 'Manuel Jimenez');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Aston Villa', 'England', 'Premier League', 0, 0, 'Steven Gerrard');
+
+INSERT INTO Club (club_name, country_name, league_title, league_won, ucl_title, coach_name) VALUES ('Chelsea', 'England', 'Premier League', 6, 2, 'Mauricio Pochettino');
+
+ALTER TABLE Player add FOREIGN KEY (club_name) REFERENCES Club(club_name);
+
+SELECT DISTINCT p.club_name AS Player_Club, c.club_name AS Club_Club
+FROM Player p
+LEFT JOIN Club c ON p.club_name = c.club_name
+WHERE c.club_name IS NULL OR p.club_name IS NULL;
+
+
+create table Position(
+position_name varchar(3),
+player_name varchar(20),
+foreign key(player_name) references Player(Player_name)
+);
+
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Erling Haaland');
+INSERT INTO Position (position_name, player_name) VALUES ('AMF', 'Jude Bellingham');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Kylian Mbappé');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Harry Kane');
+INSERT INTO Position (position_name, player_name) VALUES ('CDM', 'Rodri');
+INSERT INTO Position (position_name, player_name) VALUES ('LW', 'Vinícius Júnior');
+INSERT INTO Position (position_name, player_name) VALUES ('CM', 'Kevin De Bruyne');
+INSERT INTO Position (position_name, player_name) VALUES ('LW', 'Lionel Messi');
+INSERT INTO Position (position_name, player_name) VALUES ('MF', 'Bernardo Silva');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Lautaro Martínez');
+INSERT INTO Position (position_name, player_name) VALUES ('RW', 'Bukayo Saka');
+INSERT INTO Position (position_name, player_name) VALUES ('CF', 'Antoine Griezmann');
+INSERT INTO Position (position_name, player_name) VALUES ('DMF', 'Ilkay Gündogan');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Robert Lewandowski');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Martin Ødegaard');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Julián Álvarez');
+INSERT INTO Position (position_name, player_name) VALUES ('AMF', 'Jamal Musiala');
+INSERT INTO Position (position_name, player_name) VALUES ('CB', 'Rúben Dias');
+INSERT INTO Position (position_name, player_name) VALUES ('MF', 'Declan Rice');
+INSERT INTO Position (position_name, player_name) VALUES ('GK', 'Ederson');
+INSERT INTO Position (position_name, player_name) VALUES ('MF', 'Luka Modric');
+INSERT INTO Position (position_name, player_name) VALUES ('ST', 'Cristiano Ronaldo');
+INSERT INTO Position (position_name, player_name) VALUES ('LW', 'Neymar');
+INSERT INTO Position (position_name, player_name) VALUES ('GK', 'Emiliano Martinez');
+INSERT INTO Position (position_name, player_name) VALUES ('RW', 'Rodrygo');
+
+create table Goal(
+player_name varchar(20),
+Country_name varchar(20),
+club_name varchar(20),
+country_goal number(3),
+club_goal number(3),
+foreign key(player_name) references Player(Player_name),
+foreign key(Country_name) references Country(Country_name),
+foreign key(club_name) references Club(club_name)
+);
+alter table Goal add country_assist number(3);
+
+alter table Goal add club_assist number(3);
+
+INSERT INTO Goal (player_name, Country_name, club_name, country_goal, club_goal, country_assist, club_assist) 
+VALUES 
+('Erling Haaland', 'Norway', 'Manchester City', 27, 243, 10, 25),
+('Jude Bellingham', 'England', 'Real Madrid', 5, 10, 4, 8),
+('Kylian Mbappé', 'France', 'Paris Saint-Germain', 20, 40, 15, 20),
+('Harry Kane', 'England', 'Bayern Munich', 25, 50, 20, 30),
+('Rodri', 'Spain', 'Manchester City', 10, 20, 15, 25),
+('Vinícius Júnior', 'Brazil', 'Real Madrid', 18, 35, 12, 20),
+('Kevin De Bruyne', 'Belgium', 'Manchester City', 22, 45, 30, 40),
+('Lionel Messi', 'Argentina', 'Inter Miami', 30, 60, 25, 50),
+('Bernardo Silva', 'Portugal', 'Manchester City', 12, 25, 10, 18),
+('Lautaro Martínez', 'Argentina', 'Inter Milan', 22, 40, 15, 22),
+('Bukayo Saka', 'England', 'Arsenal', 10, 20, 8, 15),
+('Antoine Griezmann', 'France', 'Atlético Madrid', 18, 35, 15, 25),
+('Ilkay Gündogan', 'Germany', 'Barcelona', 15, 30, 12, 22),
+('Robert Lewandowski', 'Poland', 'Barcelona', 40, 70, 20, 35),
+('Martin Ødegaard', 'Norway', 'Arsenal', 12, 25, 10, 18),
+('Julián Álvarez', 'Argentina', 'Manchester City', 20, 40, 15, 25),
+('Jamal Musiala', 'Germany', 'Bayern Munich', 12, 25, 8, 15),
+('Rúben Dias', 'Portugal', 'Manchester City', 8, 15, 10, 18),
+('Declan Rice', 'England', 'Arsenal', 5, 10, 6, 12),
+('Ederson', 'Brazil', 'Manchester City', 0, 1, 0, 1),
+('Luka Modric', 'Croatia', 'Real Madrid', 20, 40, 30, 45),
+('Cristiano Ronaldo', 'Portugal', 'Al-Nassr', 45, 80, 25, 45),
+('Neymar', 'Brazil', 'Al-Hilal', 50, 90, 40, 60),
+('Emiliano Martinez', 'Argentina', 'Aston Villa', 8, 15, 5, 10),
+('Rodrygo', 'Brazil', 'Real Madrid', 15, 30, 10, 18);
+
+create table Coach (
+    coach_name VARCHAR(30) PRIMARY KEY,
+    Country_name VARCHAR(20),
+    club_name VARCHAR(20),
+    FOREIGN KEY (Country_name) REFERENCES Country(Country_name),
+    FOREIGN KEY (club_name) REFERENCES Club(club_name)
+);
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Miguel Ángel Russo', 'Argentina', 'Boca Juniors');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Marcelo Gallardo', 'Argentina', 'River Plate');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Luis Enrique', 'France', 'Paris Saint-Germain');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Jorge Sampaoli', 'France', 'Olympique de Marseille');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Pep Guardiola', 'England', 'Manchester City');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Jürgen Klopp', 'England', 'Liverpool');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Rogério Ceni', 'Brazil', 'Flamengo');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Hernán Crespo', 'Brazil', 'São Paulo');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Carlo Ancelotti', 'Spain', 'Real Madrid');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Xavi Hernández', 'Spain', 'Barcelona');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Thomas Tuchel', 'Germany', 'Bayern Munich');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Marco Rose', 'Germany', 'Borussia Dortmund');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Sérgio Conceição', 'Portugal', 'Porto');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Rúben Amorim', 'Portugal', 'Sporting CP');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Niko Kovač', 'France', 'AS Monaco');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Peter Bosz', 'France', 'Olympique Lyonnais');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Mikel Arteta', 'England', 'Arsenal');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Antonio Conte', 'England', 'Tottenham Hotspur');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Abel Ferreira', 'Brazil', 'Palmeiras');
+
+INSERT INTO Coach (coach_name, Country_name, club_name) VALUES 
+('Fernando Diniz', 'Brazil', 'Santos');
+

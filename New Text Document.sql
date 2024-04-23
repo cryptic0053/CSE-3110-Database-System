@@ -18,11 +18,19 @@ create table Player(
  insert into Country(Country_Name,Ranking,Wc_won)values('Argentina',1,3);
  insert into Country(Country_Name,Ranking,Wc_won)values('Germany',16,4);
  insert into Country(Country_Name,Ranking,Wc_won)values('France',2,4);
+ insert into Country(Country_Name,Ranking,Wc_won)values('Belgium',4,0);
+ insert into Country(Country_Name,Ranking,Wc_won)values('England',3,1);
+ insert into Country(Country_Name,Ranking,Wc_won)values('Netherlands',6,0);
+ insert into Country(Country_Name,Ranking,Wc_won)values('Italy',9,4); 
+ insert into Country(Country_Name,Ranking,Wc_won)values('Croatia',10,0);
+ insert into Country(Country_Name,Ranking,Wc_won)values('Portugal',7,0);
 
 
 insert into Player(Player_Name,Country_Name,Jersey_No,Club_Name,Position)values('Messi','Argentina',10,'Inter-Miami','LW');
 insert into Player(Player_Name,Country_Name,Jersey_No,Club_Name,Position)values('Neymar','Brazil',10,'Al-Hilal','LW');
- insert into Player(Player_Name,Country_Name,Jersey_No,Club_Name,Position)values('Mbappe','France',10,'PSG','ST');
+insert into Player(Player_Name,Country_Name,Jersey_No,Club_Name,Position)values('Mbappe','France',10,'PSG','ST');
+insert into Player(Player_Name,Country_Name,Jersey_No,Club_Name,Position)values('Ronaldo','Portugal',7,'Al-Nassr','ST');
+
 
 select * from Country natural join Player;
 select * from Country left outer join Player using(Country_Name);
